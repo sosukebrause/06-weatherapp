@@ -4,7 +4,7 @@
   btn.classList.add("hide-me")
   */
 }
- .cards-row {
+.cards-row {
   margin-top: 20px;
 }
 
@@ -12,8 +12,9 @@
   margin-top: 20px;
 }
 
-form {
-  display: flex;  
-  justify-items: right;
-  margin: 10px;
-} */
+.for-list {
+  min-width: 12rem;
+  margin-top: 20px;
+  padding-left: 10px !important;
+  float: left;
+}

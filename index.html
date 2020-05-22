@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <title>WeatherApp</title>
   </head>
   <body>
@@ -12,17 +15,21 @@
       <input id="input" type="text" placeholder="type ZIP Code here" />
       <button id="submitbtn" type="submit">Continue</button>
     </form>
-    <div class="container">
-      <div class="cards-row">
+    <div class="row">
+      <aside class="col-1 for-list">
+        <ul class="list-group">
+          <li class="list-group-item active">Cras j</li>
+          <li class="list-group-item">Dapibus</li>
+        </ul>
+      </aside>
+    </div>
+
+    <div class="row cards-row">
+      <div class="col-xs-1 forcards">
         <div class="card-container"></div>
-        
-                <p id="p1"></p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.0.min.js"
       integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
