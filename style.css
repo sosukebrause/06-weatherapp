@@ -1,11 +1,19 @@
-.fade {
-  display: none;
-  /* or... visibility: hidden;
-  btn.classList.add("hide-me")
-  */
+body {
+  margin-left: 4%;
 }
-.cards-row {
-  margin-top: 20px;
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4%;
+}
+.forecast {
+  /* margin-top: 20px; */
+  /* margin-left: 100px; */
+  margin: 5% auto;
+  display: flex;
+  direction: row;
+  justify-content: space-between;
 }
 
 .card-container {
@@ -15,6 +23,7 @@
 .for-list {
   min-width: 12rem;
   margin-top: 20px;
+  margin-left: 10px;
   padding-left: 10px !important;
-  float: left;
+  /* float: left; */
 }
