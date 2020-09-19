@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $("#input").val("94117");
+  var cities = JSON.parse(localStorage.getItem("cities")) || [];
   $("#submitbtn").on("click", function (e) {
     e.preventDefault();
     input = $("#input").val();
@@ -12,7 +13,7 @@ $(document).ready(function () {
   function getWeather() {
     $.ajax({
       type: "GET",
-      url: `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=c1dc5cf44c3a5ebaadb89b904175bcca`,
+      url: `https://api.openweathermap.org/data/2.5/weather?q=${input},us&appid=c1dc5cf44c3a5ebaadb89b904175bcca`,
       dataType: "JSON",
     }).then(function (response) {
       console.log(response);
@@ -26,6 +27,15 @@ $(document).ready(function () {
         var convertedLocal = (1.8 * (n - 273.15) + 32).toFixed(1);
         return convertedLocal;
       }
+      console.log(input);
+      console.log(cities);
+      console.log(cities.indexOf(response.name));
+
+      if (cities.indexOf(response.name) === -1) {
+        cities.push(response.name);
+      }
+      localStorage.setItem("cities", JSON.stringify(cities));
+      console.log(cities);
 
       cardTemplate = $(".card-container").append(`
         <div class="card text-white bg-info mb-3" style="max-width: 18rem;">

@@ -10,18 +10,26 @@
     />
     <title>WeatherApp</title>
   </head>
+  <header class="jumbotron bg-primary text-light text-center rounded-0">
+    <h1>Weather Dashboard</h1>
+  </header>
   <body>
     <form>
       <input id="input" type="text" placeholder="type ZIP Code here" />
       <button id="submitbtn" type="submit">Continue</button>
     </form>
     <div class="row">
-      <aside class="col-1 for-list">
+      <aside class="col-4 for-list">
         <ul class="list-group">
           <li class="list-group-item active">Cras j</li>
           <li class="list-group-item">Dapibus</li>
         </ul>
       </aside>
+      <div class="col-md-8">
+        <section class="container text-center" id="currentWeather">
+          <div id="weather" class="card border-primary text-center"></div>
+        </section>
+      </div>
     </div>
 
     <div class="row cards-row">
