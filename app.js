@@ -15,7 +15,6 @@ $(document).ready(function () {
     getWeather();
     $("#currentWeather").show();
     $(".for-list").show();
-    // searchList();
   });
   function convert(n) {
     var convertedLocal = (1.8 * (n - 273.15) + 32).toFixed(1);
@@ -37,16 +36,22 @@ $(document).ready(function () {
 
       console.log(input);
       console.log(cities.indexOf(response.name));
-
+      console.log(cities.indexOf(response.name) === -1);
       if (cities.indexOf(response.name) === -1) {
         cities.push(response.name);
       }
       localStorage.setItem("cities", JSON.stringify(cities));
-      console.log(cities);
+      // console.log(cities);
+      $(".list-group").html("");
 
       for (var i = 0; i < cities.length; i++) {
         $(".list-group").append(`
           <li class="list-group-item">${cities[i]}</li>`);
+        $("li").click(function (e) {
+          $("input").val($(this).text());
+          // console.log($("input").val());
+          $("#submitbtn").click();
+        });
       }
 
       $("#weather").html(`
@@ -54,11 +59,11 @@ $(document).ready(function () {
           <h2 class="card-header">${response.name}</h2>
           <div class="card-body bg-light text-dark">
             <div class="row" style="justify-content:space-evenly";>
-              <div class="col-9">
+              <div class="col-6">
                 <h5 class="card-title">Currently ${tempF}°</h5>
-                <p class="card-text"></p> 
+                <p class="card-text" "style=margin-left: 0";>${desc}</p> 
               </div>
-              <div class="col-3">
+              <div class="col-4">
               <img style="width:100px" "margin-right:2%"; src="https://openweathermap.org/img/wn/${response.weather[0].icon}.png">
               </div>
             </div>
@@ -66,11 +71,12 @@ $(document).ready(function () {
           <div class="card-footer"></div>
         </div>`);
 
-      var humidity = $(`<h6>`).text(humid + "% humidity; " + desc);
       var thefeels = $(`<h6>`).text("Feels like " + fl + "°");
+      var humidity = $(`<h6>`).text(humid + "% humidity");
       var range = $(`<p>`).text("Min/Max: " + min + " ~ " + max + "°");
-      $(".card-footer").prepend(moment().format("lll"));
       $(".card-text").append(thefeels, humidity, range);
+
+      $(".card-footer").prepend(moment().format("lll"));
     });
     getForecast();
   }
@@ -83,7 +89,7 @@ $(document).ready(function () {
     }).then(function (res) {
       $(".forecast").empty();
       var list = res.list;
-      console.log(list);
+      // console.log(list);
 
       for (let i = 0; i < list.length; i = i + 8) {
         $(".forecast").append(`

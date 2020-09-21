@@ -1,5 +1,6 @@
 body {
   margin-left: 4%;
+  margin-right: 4%;
 }
 
 form {
@@ -16,14 +17,26 @@ form {
   justify-content: space-between;
 }
 
+#weather {
+  max-width: 600px;
+  min-width: 400px;
+}
+
 .card-container {
   margin-top: 20px;
 }
-
+img {
+  border: 1px solid #ccc;
+  border-radius: 20%;
+}
 .for-list {
   min-width: 12rem;
   margin-top: 20px;
   margin-left: 10px;
   padding-left: 10px !important;
   /* float: left; */
+}
+
+.card-header {
+  text-align: center;
 }
